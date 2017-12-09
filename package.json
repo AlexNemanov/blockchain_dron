@@ -1,0 +1,17 @@
+{
+  "name": "golos_dron",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Nemanov and taem",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "golos": "ontofractal/golosjs",
+    "lodash": "^4.17.4",
+    "prettyjson": "^1.2.1"
+  }
+}

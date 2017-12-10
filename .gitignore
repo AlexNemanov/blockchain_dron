@@ -2,6 +2,9 @@
 /web/assets/
 
 /.idea
+/db
+abi
+bytecode
 
 /node_modules/
 .DS_Store

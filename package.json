@@ -1,0 +1,26 @@
+{
+  "name": "dron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dhttp": "^2.4.1",
+    "ethereumjs-util": "^5.1.2",
+    "ethjs-contract": "^0.1.9",
+    "ethjs-provider-signer": "^0.1.4",
+    "ethjs-query": "^0.3.2",
+    "ethjs-signer": "^0.1.1",
+    "express": "^4.16.2",
+    "pug": "^2.0.0-rc.4",
+    "solc": "^0.4.19",
+    "solidity-sha3": "^0.4.1",
+    "uuid": "^3.1.0",
+    "web3": "^0.19.0"
+  }
+}

@@ -1,0 +1,60 @@
+html
+    head
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom fonts for this template -->
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+        //- <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+        <!-- Custom styles for this template -->
+        <link href="css/landing-page.min.css" rel="stylesheet">
+
+        script(src="js/clientApi-b.js")
+        script(src="vendor/jquery/jquery.min.js")
+        script(src="js/main.js")
+
+        title= title
+
+    body
+        <!-- Masthead -->
+        <header class="masthead text-white text-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h1 class="mb-5">Confirm delivery or report an error</h1>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                    form#order_form(method='POST' action='/finishOrder')
+                        div.form-row
+                            text Order ID:
+                        div.form-row
+                            input#order_id.form-control.form-control-lg(type="text", name="order_id")
+                        div.form-row
+                            text Type Private Key:
+                        div.form-row
+                            input#pk.form-control.form-control-lg(type="text")
+                        div.form-row.mb-3
+                        div.form-row
+                            text I confirm that delivery was successfull (Yes or No):
+                        div.form-row
+                            select#status(name="result")
+                                option(value="") Please select
+                                option(value="1") Ok
+                                option(value="2") No
+                        div.form-row.mb-3
+                        div.form-row
+                            button#fsub.btn.btn-block.btn-lg.btn-primary(type='submit') Send response
+                </div>
+                </div>
+            </div>
+        </header>
+
+

@@ -16,6 +16,8 @@ const uuid4 = require('uuid/v4');
 const sha3 = require('solidity-sha3');
 const ethUtil = require('ethereumjs-util');
 const express = require('express')
+const bodyParser = require('body-parser')
+const http = require('http')
 
 /*
 const contractName = 'DronsContract';
@@ -101,6 +103,14 @@ tests().catch(e => console.error(e.message));
 // Express app
 const app = express()
 app.set('view engine', 'pug')
+app.use(express.static('public'))
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json())
+
+// Dron
+// let IP = 
 
 app.get('/order', (req, res) => {
   res.render('order', {
@@ -109,27 +119,6 @@ app.get('/order', (req, res) => {
 })
 
 app.post('/order', (req, res) => {
-
-// http.get('http://192.168.128.250', (resp) => {
-// // http.get('http://golos.my/dron.php', (resp) => {
-//     let data = '';
-//
-//     // A chunk of data has been recieved.
-//     resp.on('data', (chunk) => {
-//         data += chunk;
-//     });
-//
-//     // The whole response has been received. Print out the result.
-//     resp.on('end', () => {
-//         console.log(JSON.parse(data));
-//     });
-//
-//     }).on("error", (err) => {
-//         console.log("Error: " + err.message);
-//     }
-// );
-//
-
 // // Set the headers
 // var headers = {
 //     'User-Agent':       'Super Agent/0.0.1',
@@ -152,6 +141,52 @@ app.post('/order', (req, res) => {
 //     }
 // })
 
+})
+
+app.get('/confirm', (req, res) => {
+  res.render('confitm', {
+    title: 'Dronex', h1_text: 'Подтверждение доставки'
+  })
+})
+
+app.post('/confirm', (req, res) => {
+  pk = req.body.pkey
+
+  console.log(req.body)
+
+  // let recipientPrivKey = Buffer.from(req.body.pkey, 'hex');
+  // let orderId = req.body.order_id
+
+  // let dronArrived = new Date().getTime() + 1000 * 60 * 1;
+  // let recipientOrderArrive = dronArrived, recipientOrderStatus = 1;
+  
+  // const sig3 = ethUtil.ecsign(Buffer.from(sha3.default(recipientOrderArrive, recipientOrderStatus).slice(2), 'hex'), recipientPrivKey);
+  
+
+  res.send(
+    'Pkey ' + req.body.QQQ
+  )
+})
+
+app.get('/dron/status', (req, res) => {
+  http.get('http://192.168.128.250:9000', (resp) => {
+  // http.get('http://golos.my/dron.php', (resp) => {
+      let data = '';
+
+      // A chunk of data has been recieved.
+      resp.on('data', (chunk) => {
+          data += chunk;
+      });
+
+      // The whole response has been received. Print out the result.
+      resp.on('end', () => {
+          console.log(JSON.parse(data));
+      });
+
+      }).on("error", (err) => {
+          console.log("Error: " + err.message);
+      }
+  );  
 })
 
 app.listen(3000, () => console.log('Start on port 3000!'))

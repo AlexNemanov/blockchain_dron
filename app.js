@@ -17,6 +17,7 @@ const sha3 = require('solidity-sha3');
 const ethUtil = require('ethereumjs-util');
 const express = require('express')
 
+/*
 const contractName = 'DronsContract';
 let contractSource = fs.readFileSync(`./${contractName}.sol`, 'utf8');
 let output = solc.compile(contractSource, 1);
@@ -95,6 +96,7 @@ let tests = async () => {
 }
 
 tests().catch(e => console.error(e.message));
+*/
 
 // Express app
 const app = express()
@@ -104,6 +106,52 @@ app.get('/order', (req, res) => {
   res.render('order', {
     title: 'Dronex', h1_text: 'Заказ'
   })
+})
+
+app.post('/order', (req, res) => {
+
+// http.get('http://192.168.128.250', (resp) => {
+// // http.get('http://golos.my/dron.php', (resp) => {
+//     let data = '';
+//
+//     // A chunk of data has been recieved.
+//     resp.on('data', (chunk) => {
+//         data += chunk;
+//     });
+//
+//     // The whole response has been received. Print out the result.
+//     resp.on('end', () => {
+//         console.log(JSON.parse(data));
+//     });
+//
+//     }).on("error", (err) => {
+//         console.log("Error: " + err.message);
+//     }
+// );
+//
+
+// // Set the headers
+// var headers = {
+//     'User-Agent':       'Super Agent/0.0.1',
+//     'Content-Type':     'application/x-www-form-urlencoded'
+// }
+//
+// // Configure the request
+// var options = {
+//     url: 'http://192.168.128.250',
+//     method: 'GET',
+//     headers: headers,
+//     form: {"lat": 53.9000000, "long": 27.5666700, "type": "Beer"}
+// }
+//
+// // Start the request
+// request(options, function (error, response, body) {
+//     if (!error && response.statusCode == 200) {
+//         // Print out the response body
+//         console.log(body)
+//     }
+// })
+
 })
 
 app.listen(3000, () => console.log('Start on port 3000!'))

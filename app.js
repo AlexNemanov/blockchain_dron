@@ -15,6 +15,7 @@ const Web3 = require('web3');
 const uuid4 = require('uuid/v4');
 const sha3 = require('solidity-sha3');
 const ethUtil = require('ethereumjs-util');
+const express = require('express')
 
 const contractName = 'DronsContract';
 let contractSource = fs.readFileSync(`./${contractName}.sol`, 'utf8');
@@ -94,3 +95,32 @@ let tests = async () => {
 }
 
 tests().catch(e => console.error(e.message));
+
+// Express app
+const app = express()
+app.set('view engine', 'pug')
+
+app.get('/order', (req, res) => {
+  res.render('order', {
+    title: 'Dronex', h1_text: 'Заказ'
+  })
+})
+
+app.listen(3000, () => console.log('Start on port 3000!'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
